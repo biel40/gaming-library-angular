@@ -1,0 +1,24 @@
+<div class="flex flex-col items-center justify-center">
+    <h2 class="text-2xl font-semibold mb-4 mt-4">My Video Games</h2>
+    <a routerLink="/add" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">Add Video Game</a>
+
+    <div class="w-1/2 mt-4">
+        <div *ngFor="let videogame of videogames">
+            <div class="bg-white rounded-lg shadow-md p-4">
+                <div>
+                    <h3 class="text-lg font-semibold mb-2">{{ videogame.name }}</h3>
+                    <p class="text-gray-500 mb-2">{{ videogame.description }}</p>
+                    <p class="text-gray-500 mb-4">{{ videogame.year}}</p>
+                </div>
+                <div class="flex justify-end">
+                    <button (click)="viewDetails(videogame.id)"
+                        class="bg-blue-500 hover:bg-blue-600 text-white py-1 px-2 rounded mr-2">View Details</button>
+                    <button (click)="editVideoGame(videogame.id)"
+                        class="bg-green-500 hover:bg-green-600 text-white py-1 px-2 rounded mr-2">Edit</button>
+                    <button (click)="deleteVideoGame(videogame.id)"
+                        class="bg-red-500 hover:bg-red-600 text-white py-1 px-2 rounded">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
