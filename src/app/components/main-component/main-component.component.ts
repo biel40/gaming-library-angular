@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 interface Videogame {
   id: number;
@@ -21,12 +22,18 @@ export class MainComponentComponent {
   public videogames: Videogame[] = [];
 
   constructor(
-    
+    private router: Router,
   ) { 
     
   }
 
   ngOnInit(): void {
   
+  }
+
+  public logout(): void {
+    //this.authService.logout();
+
+    this.router.navigate(['/login']);
   }
 }
