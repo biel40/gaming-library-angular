@@ -1,0 +1,23 @@
+<div class="flex items-center justify-center flex-col mt-10">
+    <div>
+        <h2>Add new game</h2>
+    </div>
+    <div class="mt-5">
+        <form class="login material">
+            <div class="w-max">
+                <mat-form-field>
+                    <mat-label for="username"> Videogame Name </mat-label>
+                    <input matInput type="text" formControlName="email" class="inputField" placeholder="Email"
+                        type="text" required />
+                </mat-form-field>
+            </div>
+        </form>
+    </div>
+
+    <div>
+        <!-- Button to go back -->
+        <button class="mt-6" (click)="goBack()">
+            Go Back
+        </button>
+    </div>
+</div>
