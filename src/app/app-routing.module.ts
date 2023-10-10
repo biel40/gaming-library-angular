@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { VideogamesListComponent } from './components/videogames-list/videogames-list.component';
 import { LoginComponent } from './components/login/login.component';
 import { MainComponentComponent } from './components/main-component/main-component.component';
+import { AddVideogameComponent } from './components/add-videogame/add-videogame.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' }, 
@@ -10,6 +11,7 @@ const routes: Routes = [
   { path: 'main', component: MainComponentComponent },
   { path: 'listGame', component: VideogamesListComponent },
   { path: 'viewGame', component: VideogamesListComponent },
+  { path: 'addGame', component: AddVideogameComponent },
   // { path: 'editGame', component: HomeComponent },
   // { path: 'deleteGame', component: HomeComponent },
 ];

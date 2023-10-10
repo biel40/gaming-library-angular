@@ -9,6 +9,7 @@ import { MainComponentComponent } from './components/main-component/main-compone
 import { LoginComponent } from './components/login/login.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
+import { AddVideogameComponent } from './components/add-videogame/add-videogame.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { MaterialModule } from './material.module';
     VideogamesListComponent,
     VideogameDetailComponent,
     MainComponentComponent,
+    AddVideogameComponent,
     LoginComponent
   ],
   imports: [
