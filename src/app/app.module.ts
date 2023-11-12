@@ -10,6 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { AddVideogameComponent } from './components/add-videogame/add-videogame.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AddVideogameComponent } from './components/add-videogame/add-videogame.
     BrowserModule,
     AppRoutingModule,
     NoopAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

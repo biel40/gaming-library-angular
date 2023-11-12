@@ -26,7 +26,8 @@ export class SupabaseService {
   get session() {
     this.supabaseClient.auth.getSession().then(({ data }) => {
       this._session = data.session
-    })
+    });
+    
     return this._session
   }
 
@@ -35,27 +36,43 @@ export class SupabaseService {
       .from('profiles')
       .select(`username, website, avatar_url`)
       .eq('id', user.id)
-      .single()
+      .single();
   }
 
   authChanges(callback: (event: AuthChangeEvent, session: Session | null) => void) {
-    return this.supabaseClient.auth.onAuthStateChange(callback)
+    return this.supabaseClient.auth.onAuthStateChange(callback);
   }
 
   signIn(email: string) {
     return this.supabaseClient.auth.signInWithOtp({ email })
   }
 
+  async signInWithPassword(email: string, password: string) {
+    return this.supabaseClient.auth.signInWithPassword({ email, password });
+  }
+
+  async signUp(email: string, password: string) {
+    return this.supabaseClient.auth.signUp({ email, password })
+  }
+
   signOut() {
     return this.supabaseClient.auth.signOut()
   }
 
-  updateProfile(profile: Profile) {
+  updateProfile (profile: Profile) {
     const update = {
       ...profile,
       updated_at: new Date(),
     }
 
     return this.supabaseClient.from('profiles').upsert(update)
+  }
+
+  public changePassword(email: string, password: string): Promise<any> {
+    return this.supabaseClient.auth.updateUser( {email, password} );
+  }
+
+  public getSupabaseClient(): SupabaseClient {
+    return this.supabaseClient;
   }
 }

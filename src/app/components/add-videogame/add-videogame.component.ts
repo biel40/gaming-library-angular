@@ -7,7 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AddVideogameComponent {
 
-  constructor() { }
+  constructor() { 
+    
+  }
 
   ngOnInit(): void {
 

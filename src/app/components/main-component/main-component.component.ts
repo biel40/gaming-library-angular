@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { SupabaseService } from 'src/app/services/supabase/supabase.service';
 
 interface Videogame {
   id: number;
@@ -23,6 +24,7 @@ export class MainComponentComponent {
 
   constructor(
     private router: Router,
+    private supabaseService: SupabaseService
   ) { 
     
   }
@@ -32,7 +34,7 @@ export class MainComponentComponent {
   }
 
   public logout(): void {
-    //this.authService.logout();
+    this.supabaseService.signOut();
 
     this.router.navigate(['/login']);
   }
