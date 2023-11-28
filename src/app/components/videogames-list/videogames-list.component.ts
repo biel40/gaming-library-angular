@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoaderService } from 'src/app/services/loader/loader.service';
 import { VideoGameService } from 'src/app/services/video-game-service.service';
 
 @Component({
@@ -11,13 +12,18 @@ export class VideogamesListComponent {
   public videogames: any[] = [];
 
   constructor(
-    private videoGameService: VideoGameService
+    private videoGameService: VideoGameService,
+    private loaderService: LoaderService
   ) { 
 
   }
 
   async ngOnInit(): Promise<void> {
+    this.loaderService.setLoading(true);
+
     this.videogames = await this.videoGameService.getVideoGames();
+
+    this.loaderService.setLoading(false);
 
     console.log(this.videogames);
   }

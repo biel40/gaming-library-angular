@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { Router } from '@angular/router';
+import { LoaderService } from 'src/app/services/loader/loader.service';
 import { SupabaseService } from 'src/app/services/supabase/supabase.service';
 
 @Component({
@@ -21,7 +22,8 @@ export class LoginComponent {
   constructor(
     private readonly supabaseService: SupabaseService,
     private readonly formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private loaderService: LoaderService
   ) {
     
   }
@@ -38,6 +40,8 @@ export class LoginComponent {
       console.log("Email: " + email);
       console.log("Password: " + password);
 
+      this.loaderService.setLoading(true);
+
       let response = await this.supabaseService.signInWithPassword(email, password);
 
       if (response.error) {
@@ -49,6 +53,8 @@ export class LoginComponent {
       if (error instanceof Error) {
         alert(error.message)
       }
+    } finally {
+      this.loaderService.setLoading(false);
     }
   }
 
@@ -57,6 +63,8 @@ export class LoginComponent {
       const email = this.email;
       const password = this.password;
 
+      this.loaderService.setLoading(true);
+
       let response = await this.supabaseService.signUp(email, password);
       
       alert("User created successfully! Try to login.");
@@ -64,6 +72,8 @@ export class LoginComponent {
       if (error instanceof Error) {
         alert(error.message)
       }
+    } finally{
+      this.loaderService.setLoading(false);
     }
   }
 }

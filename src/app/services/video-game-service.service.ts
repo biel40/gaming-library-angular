@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { PostgrestResponse, SupabaseClient } from '@supabase/supabase-js';
 import { SupabaseService } from './supabase/supabase.service';
 import { Videogame } from '../models/videogame';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

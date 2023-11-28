@@ -12,8 +12,6 @@ const routes: Routes = [
   { path: 'listGame', component: VideogamesListComponent },
   { path: 'viewGame', component: VideogamesListComponent },
   { path: 'addGame', component: AddVideogameComponent },
-  // { path: 'editGame', component: HomeComponent },
-  // { path: 'deleteGame', component: HomeComponent },
 ];
 
 @NgModule({

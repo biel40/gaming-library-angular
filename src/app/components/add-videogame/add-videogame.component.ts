@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AddVideogameComponent {
 
+  public videogameName: string = '';
+
   constructor() { 
     
   }
@@ -17,5 +19,9 @@ export class AddVideogameComponent {
 
   public goBack() {
     window.history.back();
+  }
+
+  public addVideogame() {
+    console.log(this.videogameName);
   }
 }
